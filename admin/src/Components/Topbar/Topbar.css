@@ -1,0 +1,54 @@
+.topbar{
+    display: flex;
+    background-color: var(--color-topbar-bg);
+    /* width: 100%; */
+    justify-content: space-between;
+    color: var(--color-topbar-text);
+    align-items: center;
+    padding: 10px 20px ;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+}
+.topbarLeft{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.topbarLeft img{
+    width: 20%;
+}
+.topbarLeft h2{
+    color: white;
+}
+.topbarRight{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.topbarIcon{
+    position: relative;
+    cursor: pointer;
+}
+.notificationBadge{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -6px;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-green);
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight:700;
+    color: black;
+}
+.profilePhoto{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}

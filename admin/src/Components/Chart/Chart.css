@@ -1,0 +1,19 @@
+.charts{
+    /* display: flex; */
+    padding: 1rem 2rem;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 1rem;
+background: #1A1C22;
+box-shadow: inset 5px 5px 8px #101115,
+            inset -5px -5px 8px #24272f;
+}
+.userAnalyticsText{
+    margin: 0;
+    margin-bottom: 10px;
+    /* font-size: 12px; */
+    color: var(--color-feature-card-text);
+}
+.dummy{
+    color: #ffffff18;
+}

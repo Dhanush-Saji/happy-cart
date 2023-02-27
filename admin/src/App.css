@@ -1,0 +1,28 @@
+*{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+:root{
+    --color-topbar-bg:#1A1C22;
+    --color-sidebar-bg:#1A1C22;
+    --color-featureCard-bg:#1A1C22;
+    --color-topbar-text:#9E9E9E;
+    --color-sidebar-heading-text:#9b9b9b77;
+    --color-feature-card-text:#9E9E9E;
+    --color-green:#1FCB4F;
+    --color-body-bg:#282C35;
+    --color-sidebar-active-hover-bg:#ffffff0e;
+    --color-features-card-icon-bg:#ffffff0e;
+}
+body{
+   
+    background-color: var(--color-body-bg);
+        margin: 0;
+    padding: 0;
+}
+.content{
+    display: flex;
+}
+.others{
+    flex: 4;
+    background-color: blue;
+}

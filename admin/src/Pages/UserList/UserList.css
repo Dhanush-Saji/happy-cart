@@ -1,0 +1,31 @@
+.userList{
+    flex: 4;
+}
+.userListUser{
+    display: flex;
+    align-items: center;
+}
+.userListImg{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+.actionCell{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.actionCellEdit{
+    border: none;
+    color: white;
+    background-color: var(--color-green);
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.actionCellDelete{
+    color: rgb(224, 24, 24);
+    cursor: pointer;
+}

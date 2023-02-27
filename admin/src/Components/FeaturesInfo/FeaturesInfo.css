@@ -1,0 +1,42 @@
+.features{
+    /* width: 100%; */
+    
+    display: flex;
+    gap: 2rem;
+}
+.feature{
+    display: flex;
+    padding: 1rem 2rem;
+    align-items: center;
+    border-radius: 10px;
+background: #1A1C22;
+box-shadow: inset 5px 5px 8px #101115,
+            inset -5px -5px 8px #24272f;
+}
+.featuresIcon{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2rem;
+    border-radius: 5px;
+    background-color: var(--color-features-card-icon-bg);
+    color: var(--color-green);
+}
+.featureText{
+    margin-left: 15px;
+}
+.featureIconExact{
+    font-size: 23px;
+}
+.featureTitle{
+    margin: 0;
+    font-size: 12px;
+    color: var(--color-feature-card-text);
+}
+.featureMoney{
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
