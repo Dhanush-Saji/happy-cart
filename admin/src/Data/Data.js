@@ -77,3 +77,32 @@ export const userRows = [
       transaction: "₹170",
     },
   ];
+export const productRows = [
+    {
+      id: 1,
+      name: "Airpods",
+      image:
+        "https://images.pexels.com/photos/428328/pexels-photo-428328.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      stocks:42,
+      status: "active",
+      price: "₹120",
+    },
+    {
+      id: 2,
+      name: "Airpods",
+      image:
+        "https://images.pexels.com/photos/428328/pexels-photo-428328.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      stocks:42,
+      status: "active",
+      price: "₹150",
+    },
+    {
+      id: 3,
+      name: "Airpods",
+      image:
+        "https://images.pexels.com/photos/428328/pexels-photo-428328.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      stocks:42,
+      status: "active",
+      price: "₹170",
+    },
+  ];

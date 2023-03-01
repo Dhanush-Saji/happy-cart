@@ -1,0 +1,52 @@
+.loginParentDiv{
+    /* position: absolute;
+    z-index: 5; */
+    background-color: #1b1c21;
+    background-image: 
+        radial-gradient(at 47% 33%, hsl(136.99, 74%, 46%) 0, transparent 59%), 
+        radial-gradient(at 82% 65%, hsl(43.05, 63%, 41%) 0, transparent 55%);
+    /* top: 0;
+    left: 0; */
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.loginChildDiv{
+    backdrop-filter: blur(21px) saturate(78%);
+    -webkit-backdrop-filter: blur(21px) saturate(78%);
+    background-color: rgba(17, 25, 40, 0.77);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    width: 40%;
+}
+.loginChildDiv form{
+    display: flex;
+    margin: auto;
+    padding: 2rem;
+    /* width: 100%; */
+    gap: 1rem;
+    flex-direction: column;
+    color: white;
+}
+.loginChildDiv input{
+    color: white;
+    border-radius: 10px;
+    background-color: #ffffff11;
+    padding: 0.8rem 2rem;
+    border: 1px solid #ffffff2f;
+}
+input.input-error{
+    border: 1px solid rgb(202, 21, 21);
+}
+.errorEmail{
+    color: rgb(223, 36, 36);
+    margin: 0;
+    font-size: 12px;
+}
+.Toastify__toast-container {
+    top: 80px;
+  }
+  
