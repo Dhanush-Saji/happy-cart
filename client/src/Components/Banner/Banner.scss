@@ -15,23 +15,29 @@
         max-width: calc(100% - 20px);
         margin: 0 auto;
         position: relative;
-        @include md {
+        @include lg {
             flex-direction: row;
             max-width: 1200px;
         }
         .banner-img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
+            height: 300px;
             z-index: 9;
             width: 200px;
             margin-bottom: 20px;
             @include md {
-                width: 500px;
-                margin-right: 60px;
-                margin-top: 50px;
-                margin-bottom: 0;
+                height: calc(100vh + 10px);
+                width: 570px;
+                // margin-right: 60px;
+                margin-top: 0px;
+                margin-bottom: 0px;
             }
-            @include xxl {
-                width: 600px;
+            @include lg {
+                width: 700px;
+            margin-top: 50px;
                 margin-right: 0;
                 margin-top: 0;
             }
@@ -42,15 +48,16 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            @include md {
+            @include lg {
                 position: absolute;
                 left: 50px;
                 top: 50%;
                 transform: translateY(-50%);
-            }
-            @include xxl {
                 left: 0;
             }
+            // @include xxl {
+            //     left: 0;
+            // }
             h1 {
                 font-size: 80px;
                 font-weight: 700;

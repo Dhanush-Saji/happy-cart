@@ -1,6 +1,5 @@
 import "./Banner.scss";
-import BannerImg from '../../assets/banner-img.png'
-
+import HeadphoneCanvas from "../3d/Three_screen";
 const Banner = () => {
     return(
          <div className="hero-banner">
@@ -17,7 +16,9 @@ const Banner = () => {
                         <div className="banner-cta v2">Shop Now</div>
                     </div>
                 </div>
-                <img className="banner-img" src={BannerImg} />
+                <div  className='banner-img'>
+                    {/* <HeadphoneCanvas /> */}
+                </div>
             </div>
         </div>
     );
