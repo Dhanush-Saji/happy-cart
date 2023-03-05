@@ -1,51 +1,27 @@
-.signupParentDiv{
-    /* position: absolute;
-    z-index: 5; */
-    background-color: #1b1c21;
-    background-image: 
-        radial-gradient(at 47% 33%, hsl(136.99, 74%, 46%) 0, transparent 59%), 
-        radial-gradient(at 82% 65%, hsl(43.05, 63%, 41%) 0, transparent 55%);
-    /* top: 0;
-    left: 0; */
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-.signupChildDiv{
-    backdrop-filter: blur(21px) saturate(78%);
-    -webkit-backdrop-filter: blur(21px) saturate(78%);
-    background-color: rgba(17, 25, 40, 0.77);
+.categoryChildDiv{
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.125);
-    width: 40%;
+    width: 100%;
 }
-.signupChildDiv form{
+.closeBtnDiv{
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+.categoryChildDiv > form{
     display: flex;
     margin: auto;
     padding: 1rem;
     /* width: 100%; */
     gap: 0.5rem;
     flex-direction: column;
-    color: white;
 }
-.signupChildDiv form >  input{
-    color: white;
+.categoryChildDiv form >  input{
     border-radius: 10px;
     background-color: #ffffff11;
     padding: 0.5rem 2rem;
-    border: 1px solid #ffffff2f;
-    padding-left: 1.2rem;
-}
-.signupChildDiv input.input-error{
-    border: 1px solid rgb(253, 65, 65);
-}
-.signupChildDiv .errorEmail{
-    color: rgb(253, 65, 65);
-    margin: 0;
-    font-size: 12px;
+    border: 1px solid #0000002f;
+    /* padding-left: 1.2rem; */
 }
 .signupChildDiv form button{
     margin-top: 1rem;

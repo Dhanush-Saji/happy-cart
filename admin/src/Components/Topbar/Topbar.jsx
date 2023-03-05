@@ -24,7 +24,7 @@ const Topbar = () => {
         <div className="settingsIcon topbarIcon">
           <SettingsIcon />
         </div>
-      <img className="profilePhoto" src={data[0].avatar.url?data[0].avatar.url:"https://cdn.pixabay.com/photo/2017/02/04/12/25/man-2037255_960_720.jpg"} alt="profile photo" />
+      <img className="profilePhoto" src={data.length>0 && data[0].avatar?data[0].avatar.url:"https://cdn.pixabay.com/photo/2017/02/04/12/25/man-2037255_960_720.jpg"} alt="profile photo" />
       </div>
     </div>
   );

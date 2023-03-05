@@ -9,6 +9,8 @@ import User from "./Pages/User/User";
 import ProductList from "./Pages/ProductList/ProductList";
 import Login from "./Pages/Login/Login";
 import Signup from "./Pages/Signup/Signup";
+import PrivateRoute from "./Pages/Private/PrivateRoute";
+import Category from "./Pages/Category/Category";
 
 function App() {
   const location = useLocation();
@@ -19,10 +21,11 @@ function App() {
         <div className="content">
         {shouldShowTopbarAndSidebar && <Sidebar />}
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/users" element={<UserList />} />
-            <Route path="/users/:id" element={<User />} />
-            <Route path="/products" element={<ProductList />} />
+            <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
+            <Route path="/users" element={<PrivateRoute><UserList /></PrivateRoute>} />
+            <Route path="/users/:id" element={<PrivateRoute><User /></PrivateRoute>} />
+            <Route path="/products" element={<PrivateRoute><ProductList /></PrivateRoute>} />
+            <Route path="/category" element={<PrivateRoute><Category /></PrivateRoute>} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
           </Routes>
