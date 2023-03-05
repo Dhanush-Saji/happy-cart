@@ -32,6 +32,7 @@ const Signup = () => {
     setusername(email);
     setpassword(password);
     setTimeout(actions.resetForm, 1000);
+    setavatarImage('')
   };
   const loginSchema = yup.object().shape({
     email: yup
@@ -183,7 +184,17 @@ const Signup = () => {
             {formik.isSubmitting ? "let me check..." : "Create account"}
           </Button>
         </form>
-        <ToastContainer />
+        <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable={false}
+        pauseOnHover={false}
+      />
       </div>
     </div>
   );
