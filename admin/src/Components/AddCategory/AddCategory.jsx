@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { ToastContainer} from 'react-toastify';
+import { ToastContainer,toast} from 'react-toastify';
 import CloseIcon from '@mui/icons-material/Close';
 import 'react-toastify/dist/ReactToastify.css';
 import { Button } from '@mui/material';
 import './AddCategory.css'
 import { useDispatch } from 'react-redux';
-import { addCartFnApi } from '../../API/APICalls';
+import { addCategoryFnApi } from '../../API/APICalls';
 const AddCategory = ({closeFn}) => {
     const dispatch = useDispatch()
     const [categoryImage, setcategoryImage] = useState('')
@@ -33,9 +33,15 @@ const AddCategory = ({closeFn}) => {
         let payload={
             title:categoryTitle,image:categoryImage
         }
-        dispatch(addCartFnApi(payload))
+        if(!categoryImage || !categoryTitle){
+          toast.error('Uploading without image or title? no way..!😠');
+        }
+        else{
+          dispatch(addCategoryFnApi(payload))
         setcategoryImage('')
         setcategoryTitle('')
+        }
+        
       }
   return (
       <div className="categoryChildDiv">
@@ -75,6 +81,7 @@ const AddCategory = ({closeFn}) => {
         pauseOnFocusLoss={false}
         draggable={false}
         pauseOnHover={false}
+        theme='dark'
       />
       </div>
   )

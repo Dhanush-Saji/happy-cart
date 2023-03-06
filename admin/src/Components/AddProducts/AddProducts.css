@@ -1,0 +1,69 @@
+.productChildDiv{
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    width: 100%;
+}
+.closeBtnDiv{
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+.productChildDiv > form{
+    display: flex;
+    margin: auto;
+    padding: 1rem;
+    /* width: 100%; */
+    gap: 0.5rem;
+    flex-direction: column;
+}
+.productChildDiv >  form  input{
+    border-radius: 10px;
+    background-color: #ffffff11;
+    padding: 0.8rem 2rem;
+    border: 1px solid #0000002f;
+    /* padding-left: 1.2rem; */
+}
+.productChildDiv form button{
+    margin-top: 1rem;
+}
+.upload-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #ffffff2f;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: auto;
+    color: #ffffff5d;
+    object-fit: contain;
+  }
+  .avatarImage{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: contain;
+  }
+  .avatarEditIcon{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position:absolute;
+      bottom: 0;
+      right: -5px;
+      color: var(--color-green);
+      background-color: #ffffffea;
+      padding: 1px;
+      border-radius: 50%;
+      width:20px;
+      height:20px;
+      font-size: 2px;
+  }
+  
+@media all and (max-width:400px){
+    .productChildDiv{
+        width: 80%;
+    }
+}

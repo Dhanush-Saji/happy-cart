@@ -5,7 +5,8 @@ import storage from 'redux-persist/lib/storage';
 
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import { categoryReducer } from './CartReducer/Category.reducer';
+import { categoryReducer } from './CategoryReducer/Category.reducer';
+import { productReducer } from './ProductRedcuer/Product.reducer';
 
 
 const persistConfig = {
@@ -13,7 +14,7 @@ const persistConfig = {
     storage,
   };
 const rootReducer = combineReducers({
-  authReducer,categoryReducer
+  authReducer,categoryReducer,productReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
