@@ -9,12 +9,11 @@ import { Box, Typography } from '@mui/material';
 import AddCategory from './../../Components/AddCategory/AddCategory';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { getCartFnApi } from '../../API/APICalls';
 import { useMemo } from 'react';
+import { getCategoryFnApi } from '../../API/APICalls';
 const Category = () => {
   const dispatch = useDispatch()
   
-  const userData = useSelector((store) => store.authReducer.userData) || [];
     const categoryData = useSelector((store)=>store.categoryReducer.categoryData) || []
 
     const [open, setOpen] = useState(false);
@@ -101,9 +100,9 @@ const Category = () => {
       const closeFn = () =>{
         handleClose()
       }
-      let firstTime = false
       useEffect(()=>{
-        dispatch(getCartFnApi(firstTime))
+        let firstTime = true
+        dispatch(getCategoryFnApi(firstTime))
       },[])
   return (
     <div className='categoryPage'>

@@ -2,7 +2,8 @@ import { loginAdminError, loginAdminRequest, loginAdminSuccess, registerAdminErr
 import axios from 'axios'
 import { ToastContainer, toast, } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { addCategoryError, addCategoryRequest, addCategorySuccess, getCategoryRequest } from "../Redux/CartReducer/Category.action";
+import { addCategoryError, addCategoryRequest, addCategorySuccess, getCategoryError, getCategoryRequest, getCategorySuccess } from "../Redux/CategoryReducer/Category.action";
+import { addProductError, addProductRequest, addProductSuccess, getProductRequest } from "../Redux/ProductRedcuer/Product.action";
 
 export const loginFnApi = (payload) =>async(dispatch)=>{
     try {
@@ -75,7 +76,7 @@ export const registerFnApi = (payload) =>async(dispatch)=>{
         dispatch(registerAdminError())
     }
 }
-export const getCartFnApi = (firstTime) =>async(dispatch)=>{
+export const getCategoryFnApi = (firstTime) =>async(dispatch)=>{
     try {
         dispatch(getCategoryRequest())
         let response = new Promise((resolve, reject) =>{
@@ -92,7 +93,7 @@ export const getCartFnApi = (firstTime) =>async(dispatch)=>{
                 
             })
         })
-        firstTime && toast.promise(
+        !firstTime && toast.promise(
             response,
             {
               pending: 'Let me get the category data',
@@ -109,15 +110,14 @@ export const getCartFnApi = (firstTime) =>async(dispatch)=>{
         dispatch(addCategoryError())
     }
 }
-export const addCartFnApi = (payload) =>async(dispatch)=>{
+export const addCategoryFnApi = (payload) =>async(dispatch)=>{
     try {
         dispatch(addCategoryRequest())
         let response = new Promise((resolve, reject) =>{
             axios.post(`${process.env.REACT_APP_BACKENDAPI}category`,payload).then((res)=>{
-                let firstTime = true
                 const dataSolve = () =>{
-                    
-                    dispatch(getCartFnApi(firstTime))
+                    let firstTime = false
+                    dispatch(getCategoryFnApi(firstTime))
                 }
                 setTimeout(()=>resolve(res.data),1000)
                 setTimeout(dataSolve,1000)
@@ -143,6 +143,77 @@ export const addCartFnApi = (payload) =>async(dispatch)=>{
     } catch (error) {
         console.log(error)
         dispatch(addCategoryError())
+        
+    }
+}
+export const getProductsFnApi = (firstTime) =>async(dispatch)=>{
+    try {
+        dispatch(getProductRequest())
+        let response = new Promise((resolve, reject) =>{
+            axios.get(`${process.env.REACT_APP_BACKENDAPI}product/find`).then((res)=>{
+                const dataSolve = () =>{
+                    
+                    dispatch(addProductSuccess(res.data))
+                }
+                setTimeout(()=>resolve(res.data),1000)
+                setTimeout(dataSolve,2000)
+                
+            }).catch((err)=>{
+                setTimeout(()=>reject(err),2000)
+                
+            })
+        })
+        !firstTime && toast.promise(
+            response,
+            {
+              pending: 'Let me get the product data',
+              success: `Got the products! 🎉 `,
+              error:{
+                render({data:{response:{data:{error}}}}){
+                    return `Oppss....🤯${error}`
+                }
+              }
+            }
+        )
+    } catch (error) {
+        console.log(error)
+        dispatch(addProductError())
+    }
+}
+export const addProductsFnApi = (payload) =>async(dispatch)=>{
+    try {
+        dispatch(addProductRequest())
+        let response = new Promise((resolve, reject) =>{
+            axios.post(`${process.env.REACT_APP_BACKENDAPI}product`,payload).then((res)=>{
+                const dataSolve = () =>{
+                    let firstTime = false
+                    dispatch(getProductsFnApi(firstTime))
+                }
+                setTimeout(()=>resolve(res.data),1000)
+                setTimeout(dataSolve,1000)
+                
+            }).catch((err)=>{
+                setTimeout(()=>reject(err),2000)
+                
+            })
+        })
+        toast.promise(
+            response,
+            {
+              pending: 'Hm..Let me check',
+              success: `hoorayy product added! 🎉 `,
+              error:{
+                render(error){
+                    console.log(error)
+                    return `Oppss....🤯${error}`
+                }
+              }
+            }
+        )
+        
+    } catch (error) {
+        console.log(error)
+        dispatch(addProductError())
         
     }
 }
