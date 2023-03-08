@@ -13,6 +13,7 @@
         .single-product-page {
             display: flex;
             flex-direction: column;
+            padding: 10px;
             @include md {
                 flex-direction: row;
             }
@@ -138,6 +139,9 @@
                         }
                         svg {
                             margin: 0 5px;
+                        }
+                        .social-icons{
+                            display: flex;
                         }
                     }
                 }

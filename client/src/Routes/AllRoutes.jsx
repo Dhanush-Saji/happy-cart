@@ -9,8 +9,8 @@ const AllRoutes = () => {
     <>
     <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/category/:id' element={<Category />} />
-        <Route path='/product/:id' element={<SingleProduct />} />
+        <Route path='/product' element={<Category />} />
+        <Route path='/singleproduct/:id' element={<SingleProduct />} />
     </Routes>
     </>
   )

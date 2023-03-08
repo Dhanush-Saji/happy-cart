@@ -1,0 +1,16 @@
+@import "../../css-config/mixins.scss";
+.products-container {
+    // margin: 50px 0;
+    // @include md {
+    //     margin: 75px 0;
+    // }
+    padding: 0px 10px;
+    .products {
+        display: flex;
+        flex-flow: wrap;
+        gap: 10px;
+        @include md {
+            gap: 20px;
+        }
+    }
+}

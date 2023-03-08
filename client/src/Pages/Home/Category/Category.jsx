@@ -1,21 +1,22 @@
 import "./Category.scss";
-import cat1 from '../../../assets/category/cat-1.jpg'
-const Category = () => {
+import {  useNavigate, useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+const Category = ({categoryData}) => {
+    const navigate = useNavigate()
+    const navigateFn = (item) =>{
+        navigate(`/product?category=${item.title}`)
+    }
+    
     return (
         <div className="shop-by-category">
             <div className="categories">
-                <div className="category">
-                    <img src={cat1} alt="" />
+                {
+                    categoryData.map((item,index)=>(
+                        <div key={index} className="category" onClick={()=>{navigateFn(item)}}>
+                    <img src={item.image.url} alt="" />
                 </div>
-                <div className="category">
-                    <img src={cat1} alt="" />
-                </div>
-                <div className="category">
-                    <img src={cat1} alt="" />
-                </div>
-                <div className="category">
-                    <img src={cat1} alt="" />
-                </div>
+                    ))
+                }
             </div>
         </div>
     )

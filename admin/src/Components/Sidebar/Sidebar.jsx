@@ -11,6 +11,9 @@ const [isActive, setisActive] = useState('')
     const navigateToCategory = () =>{
         navigate('/category')
     }
+    const navigateToHome = () =>{
+        navigate('/')
+    }
     const navigateToProducts = () =>{
         navigate('/products')
     }
@@ -24,7 +27,7 @@ const [isActive, setisActive] = useState('')
             <div className="sidebarMenu">
                 <h3 className='sidebarTitle'>Dashboard</h3>
                 <ul className='sidebarList'>
-                    <li className={isActive == '/'?'sidebarListItem active':'sidebarListItem'}>
+                    <li className={isActive == '/'?'sidebarListItem active':'sidebarListItem'} onClick={navigateToHome}>
                         <LineStyleIcon className='sidebarIcon' />
                         Home
                     </li>

@@ -1,11 +1,9 @@
-@import "../../css-config/mixins.scss";
-.main-content{
-    max-width: calc(100% - 20px);
-    margin: 0 auto;
-    @include md{
-        max-width: 1200px;
-    }
-    .popular-title {
+@import "../../../css-config/mixins.scss";
+
+.related-products{
+    width: 100%;
+    margin-top: 2rem;
+    .related-title {
         padding: 0px 0px 20px 10px;
         font-size: 24px;
         @include md {
@@ -22,5 +20,10 @@
                 margin-top: 5px;
             }
         }
+    }
+    .related-content{
+        display: flex;
+        gap: 1rem;
+        padding: 10px;
     }
 }
