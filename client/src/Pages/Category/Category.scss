@@ -1,8 +1,11 @@
 @import "../../css-config/mixins.scss";
 .category-main-content {
-    margin: 30px 0;
-    @include md {
-        margin: 75px 0;
+    margin: 30px 0 0 0;
+    // @include md {
+    //     margin: 75px 0;
+    // }
+    .productContent{
+        display: flex;
     }
     .layout {
         max-width: calc(100% - 20px);
@@ -17,10 +20,10 @@
             font-size: 34px;
         }
     }
-    .products-container {
-        margin: 20px 0;
-        @include md {
-            margin: 50px 0;
-        }
-    }
+    // .products-container {
+    //     margin: 20px 0;
+    //     @include md {
+    //         margin: 50px 0;
+    //     }
+    // }
 }

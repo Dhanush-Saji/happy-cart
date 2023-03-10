@@ -133,7 +133,7 @@ const rows = useMemo(
       <div className="addCartDiv">
             <Button onClick={handleOpen}>ADD</Button>
         </div>
-        <DataGrid disableSelectionOnClick style={{color:'white'}} rows={rows} columns={columns} pageSize={5} checkboxSelection  />
+        <DataGrid disableSelectionOnClick style={{color:'white'}} rows={rows} columns={columns} pageSize={8} checkboxSelection  />
         <Modal
         open={open}
         onClose={handleClose}
