@@ -10,17 +10,35 @@ import {
 import prod from "../../assets/products/watch-prod-1.webp";
 import RelatedProducts from './RelatedProducts/RelatedProducts';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { getSingleProductFnApi } from "../../API/APICalls";
 import { useEffect, useLayoutEffect, useState } from "react";
 import LottieAnimation from "../../Components/LottiesFile/LottieAnimation";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Button } from "@chakra-ui/react";
+import { getSingleProductFnApi } from "../../API/APICalls";
+import { addToCartRequest, addToCartSuccess } from "../../Redux/cartSlice";
 const SingleProduct = () => {
+  const dispacth = useDispatch()
+  const [quantity, setquantity] = useState(1)
+  const handleQuantity = (sign) =>{
+    if(sign == '-'){
+      setquantity((prev)=>prev-1)
+    }else{
+      setquantity((prev)=>prev+1)
+
+    }
+  }
   const navigate = useNavigate();
   const {id} = useParams()
   const { pathname,location } = useLocation();
   const [product, setProduct] = useState(null);
-  const {productData,isLoading} = useSelector((store)=>store.productReducer)
-
+  const {products,isLoading} = useSelector((store)=>store.products) || []
+const addToCartFn = () =>{
+  let dummyProduct = {...product}
+  dummyProduct.quantity = quantity
+  dispacth(addToCartRequest())
+  dispacth(addToCartSuccess(dummyProduct))
+  setquantity(1)
+}
   useEffect(() => {
     getSingleProductFnApi(id)
       .then(data => {
@@ -29,14 +47,13 @@ const SingleProduct = () => {
       .catch(error => {
         console.error(error);
       });
-  }, []);
+  }, [location]);
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
-  
   return (
     <div className="single-product-main-content">
       <div className="layout">
@@ -53,11 +70,11 @@ const SingleProduct = () => {
             <span className="desc">{product?.des}</span>
             <div className="cart-buttons">
               <div className="quantity-buttons">
-                <span>-</span>
-                <span>1</span>
-                <span>+</span>
+                <Button isDisabled={quantity == 1} onClick={()=>{handleQuantity('-')}}>-</Button>
+                <span>{quantity}</span>
+                <Button onClick={()=>{handleQuantity('+')}}>+</Button>
               </div>
-              <button className="add-to-cart-button">
+              <button className="add-to-cart-button" onClick={addToCartFn}>
                 <FaCartPlus size={20} /> ADD TO CART
               </button>
             </div>
@@ -84,7 +101,7 @@ const SingleProduct = () => {
           
         </div>
         {
-          isLoading?<LottieAnimation />: <RelatedProducts productData={productData} id={id} category={product?.category._id} />
+          isLoading?<LottieAnimation />: <RelatedProducts productData={products} id={id} category={product?.category._id} />
         }
        
       </div>

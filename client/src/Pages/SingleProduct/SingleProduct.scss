@@ -18,12 +18,13 @@
                 flex-direction: row;
             }
             .left {
-                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 background-color: rgba(0, 0, 0, 0.05);
-                flex-shrink: 0;
                 @include md {
-                    width: 600px;
-                    height: 600px;
+                    width: 3000px;
+                    // height: 600px;
                 }
                 img {
                     width: 100%;
@@ -71,9 +72,11 @@
                     .quantity-buttons {
                         width: fit-content;
                         display: flex;
-                        border: 2px solid rgba(0, 0, 0, 0.2);
+                        align-items: center;
+                        // border: 2px solid rgba(0, 0, 0, 0.2);
                         margin-right: 10px;
                         height: 50px;
+                        padding: 0.5rem;
                         span {
                             font-size: 18px;
                             width: 40px;

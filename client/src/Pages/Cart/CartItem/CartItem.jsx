@@ -1,26 +1,45 @@
 import "./CartItem.scss";
 import prod from "../../../assets/products/headphone-prod-3.webp";
 import { MdOutlineDeleteOutline } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import { decreaseProductQuantity, increaseProductQuantity, removeItems } from "../../../Redux/cartSlice";
 
-const CartItem = () => {
+const CartItem = ({item}) => {
+  let dispatch = useDispatch()
+  const qntyChange = (sign) =>{
+    if(sign == '+'){
+      dispatch(increaseProductQuantity(item))
+    }else{
+      if(item.quantity == 1){
+
+        dispatch(removeItems(item))
+      }else{
+
+        dispatch(decreaseProductQuantity(item))
+      }
+    }
+  }
+  const deleteItem = () =>{
+    dispatch(removeItems(item))
+  }
   return (
     <div className="cart-products">
       <div className="search-result-item">
         <div className="image-container">
-          <img src={prod} alt="Cart product" />
+          <img src={item.image.url} alt="Cart product" />
         </div>
         <div className="prod-details">
-          <span className="name">Product name</span>
-          <MdOutlineDeleteOutline className="close-btn" />
+          <span className="name">{item.title}</span>
+          <MdOutlineDeleteOutline className="close-btn" onClick={deleteItem} />
           <div className="quantity-buttons">
-            <span>-</span>
-            <span>1</span>
-            <span>+</span>
+            <span onClick={()=>{qntyChange('-')}}>-</span>
+            <span>{item.quantity}</span>
+            <span onClick={()=>{qntyChange('+')}}>+</span>
           </div>
           <div className="text">
-            <span>3</span>
+            <span>{item.quantity}</span>
             <span>x</span>
-            <span>₹452</span>
+            <span>₹{item.price}</span>
           </div>
         </div>
       </div>

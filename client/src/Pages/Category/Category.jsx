@@ -1,15 +1,15 @@
 import "./Category.scss";
-import { Checkbox, CheckboxGroup, Stack, Text, VStack } from "@chakra-ui/react";
+import { Checkbox, CheckboxGroup, Hide, Stack, Text, VStack } from "@chakra-ui/react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getProductsFnApi } from "../../API/APICalls";
 import LottieAnimation from "../../Components/LottiesFile/LottieAnimation";
 import Products from "../../Components/Products/Products";
+import { getProducts } from "../../API/APICalls";
 const Category = () => {
   const { pathname,location } = useLocation();
     const dispatch = useDispatch()
-    const {productData,isLoading} = useSelector((store)=>store.productReducer)
+    const {products,isLoading} = useSelector((store)=>store.products)
     const [searchParams,setSearchParams] = useSearchParams()
     const initialCategory = searchParams.getAll("category")
     const initialPrice = searchParams.getAll("price")
@@ -43,7 +43,7 @@ const Category = () => {
         params.category = category;
         params.price = price;
         setSearchParams(params)
-        dispatch(getProductsFnApi(params))
+        dispatch(getProducts(params))
       },[category,setSearchParams,price])
       useLayoutEffect(() => {
         window.scrollTo(0, 0);
@@ -52,15 +52,12 @@ const Category = () => {
       
   return (
     <div className="category-main-content">
-        {/* <div className="category-title">
-                    Category Title
-                </div> */}
         <div className="productContent">
+          <Hide below="md">
           <VStack height='fit-content'
             bg="#8e2de2"
             borderRadius={"0px 15px 15px 0px"}
-            minW="20%"
-            mr="1rem" justifyContent='flex-start' p='0.5rem'
+            minW="20%" justifyContent='flex-start' p='0.5rem'
           >
             <VStack bg='white' color='black' w='100%'  borderRadius='10px' p='0.8rem'>
             <Text fontSize='2xl' as='b'>Category</Text>
@@ -80,8 +77,9 @@ const Category = () => {
                 </Stack>
             </VStack>
           </VStack>
+          </Hide>
           {
-            isLoading?<LottieAnimation />:<Products productData={productData} />
+            isLoading?<LottieAnimation />:<Products productData={products} />
           }
           
         </div>
