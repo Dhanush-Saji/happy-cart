@@ -2,26 +2,22 @@ import Banner from "../../Components/Banner/Banner";
 import Category from "./Category/Category";
 import "./Home.scss";
 import { useDispatch, useSelector } from 'react-redux';
-import { getCategoryFnApi, getPopularProductFnApi } from "../../API/APICalls";
 import { useEffect, useLayoutEffect } from "react";
 import Products from './../../Components/Products/Products';
 import { useLocation } from 'react-router-dom';
+import { getCategoryItems, getPopularItems, getProducts } from "../../API/APICalls";
 
 const Home = () => {
-  const { pathname } = useLocation();
   const dispatch = useDispatch()
-  const categoryData = useSelector((store)=>store.categoryReducer.categoryData)
-  const productData = useSelector((store)=>store.popularProductReducer.popularProductData)
+  const categoryData = useSelector((store)=>store.category.categoryItems) || []
+  const productData = useSelector((store)=>store.popularItems.popularItemsArray) || []
   useEffect(()=>{
-    dispatch(getCategoryFnApi())
-    dispatch(getPopularProductFnApi())
-
+    dispatch(getCategoryItems())
+    dispatch(getPopularItems())
+    dispatch(getProducts())
   },[])
-  // useLayoutEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, [pathname]);
   return (
-    <div>
+    <div id='#home'>
       <Banner />
       <div className="main-content">
         <div className="layout">

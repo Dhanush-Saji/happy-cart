@@ -1,10 +1,15 @@
 @import "../../../css-config/mixins.scss";
 .product-card {
     cursor: pointer;
-    width: calc(50% - 5px);
-    margin-bottom: 20px;
+    width: 150px;
+    margin: auto;
+    margin-bottom: 10px;
     @include md {
-        width: calc(25% - 15px);
+        width: 180px;
+    }
+    @include lg {
+        width: 100%;
+        width: 180px;
     }
     .thumbnail {
         border-radius: 10px;
@@ -16,7 +21,7 @@
         display: flex;
         align-items: center;
         @include md {
-            height: 300px;
+            height: 200px;
         }
         img {
             transition: all ease 0.3s;
@@ -26,7 +31,9 @@
     }
     .prod-details {
         text-align: center;
+        width: 150px;
         overflow: hidden;
+        margin: auto;
         .name {
             font-size: 14px;
             display: block;
@@ -78,3 +85,10 @@
         }
     }
 }
+
+// cursor: pointer;
+//     width: calc(50% - 5px);
+//     margin-bottom: 20px;
+//     @include md {
+//         width: calc(25% - 15px);
+//     }

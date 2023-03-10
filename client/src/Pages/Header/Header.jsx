@@ -3,6 +3,7 @@ import { TbSearch } from "react-icons/tb";
 import { CgShoppingCart } from "react-icons/cg";
 import { AiOutlineHeart } from "react-icons/ai";
 import { useEffect, useState } from "react";
+import {HashLink} from 'react-router-hash-link'
 import {
   Drawer,
   DrawerBody,
@@ -15,7 +16,11 @@ import {
 } from "@chakra-ui/react";
 import Cart from "../Cart/Cart";
 import Search from '../../Components/Search/Search';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from "react-redux";
 const Header = () => {
+  const cartQnty = useSelector((store)=>store.cart.cartQuantity) || 0
+  const navigate = useNavigate()
   const {
     isOpen: isOpenCart,
     onOpen: onOpenCart,
@@ -43,22 +48,32 @@ const Header = () => {
     console.log("Closing cart");
     onCloseCart();
   };
+  const navigateFn = () =>{
+    navigate(`/`)
+}
+  const navigateFnHome = () =>{
+    window.scrollTo(0, 0);
+    navigate(`/`)
+}
+const navigateFnButton = () =>{
+  navigate(`/product`)
+}
   return (
     <>
       <header className={`main-header ${scrolled ? "sticky-header" : ""}`}>
         <div className="header-content">
           <ul className="left">
-            <li>Home</li>
-            <li>About</li>
-            <li>Categories</li>
+            <li  onClick={navigateFnHome}><HashLink smooth to="#home">Home</HashLink></li>
+            <li><HashLink smooth to="#footer">About</HashLink></li>
+            <li onClick={navigateFnButton}>Categories</li>
           </ul>
-          <div className="center">MyStore</div>
+          <div className="center" onClick={navigateFn}>MyStore</div>
           <div className="right">
             <TbSearch onClick={onOpenSearch} />
             <AiOutlineHeart />
             <span className="cart-icon" onClick={onOpenCart}>
               <CgShoppingCart onClick={onOpenCart} />
-              <span onClick={onOpenCart}>5</span>
+              <span onClick={onOpenCart}>{cartQnty}</span>
             </span>
           </div>
         </div>

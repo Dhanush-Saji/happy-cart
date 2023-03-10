@@ -1,16 +1,18 @@
 @import "../../css-config/mixins.scss";
-.products-container {
-    // margin: 50px 0;
-    // @include md {
-    //     margin: 75px 0;
-    // }
-    padding: 0px 10px;
-    .products {
-        display: flex;
-        flex-flow: wrap;
-        gap: 10px;
-        @include md {
-            gap: 20px;
-        }
+
+#products-container {
+    height: max-content;
+    width: 100%;
+    display: grid;
+grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+    gap: 0;
+
+    @include md {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
+
+    @include lg {
+    }
+
 }

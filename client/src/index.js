@@ -5,17 +5,17 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom'
 import { ChakraProvider } from '@chakra-ui/react'
 import {Provider} from 'react-redux'
-import { PersistGate } from 'redux-persist/integration/react';
-import { store, persistor } from './Redux/store';
+// import { PersistGate } from 'redux-persist/integration/react';
+import { store } from './Redux/store';
 import './index.scss'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ChakraProvider>
   <BrowserRouter>
   <Provider store={store}>
-  <PersistGate loading={null} persistor={persistor}>
+  {/* <PersistGate loading={null} persistor={persistor}> */}
     <App />
-    </PersistGate>
+    {/* </PersistGate> */}
   </Provider>
   </BrowserRouter>
   </ChakraProvider>

@@ -7,15 +7,13 @@ const Products = ({productData}) => {
         navigate(`/product?category=${item.title}`)
     }
     return (
-        <div className="products-container">
-            <div className="products">
+        <div id="products-container">
             {
                 productData.map((item,index)=>(
 
                     <Product key={index} item={item} onClick={()=>navigateFn(item)} />
                 ))
             }
-            </div>
         </div>
     )
 };
