@@ -1,16 +1,19 @@
 @import "../../css-config//mixins.scss";
+
 .search-modal {
     .form-field {
         width: 100%;
         display: flex;
-        justify-content: center;
-        padding: 10px 50px;
+        justify-content: space-between;
+        padding: 10px 5px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         position: relative;
         align-items: center;
+
         @include md {
             padding: 20px 0;
         }
+
         input {
             // width: 100%;
             // max-width: 1200px;
@@ -19,42 +22,52 @@
             font-size: 20px;
             font-weight: 600;
             color: #212121;
-            outline: none;
-            border: none;
+            border: 1px solid rgba(0, 0, 0, 0.137);
             text-transform: uppercase;
+
             @include md {
                 height: 80px;
                 font-size: 48px;
             }
+
             &::placeholder {
                 color: #212121;
             }
         }
+
         .close-btn {
             cursor: pointer;
+            font-size: 30px;
+
             @include md {
                 font-size: 50px;
             }
         }
     }
+
     .search-result-content {
         max-width: calc(100% - 20px);
         margin: 0 auto;
+
         @include md {
             max-width: 800px;
         }
+
         .start-msg {
             text-align: center;
             margin-top: 20px;
             color: rgba(0, 0, 0, 0.5);
         }
+
         .search-results {
             height: calc(100vh - 110px);
             overflow: auto;
             margin: 20px 0;
+
             @include md {
                 height: calc(100vh - 160px);
             }
+
             .search-result-item {
                 display: flex;
                 align-items: center;
@@ -62,18 +75,22 @@
                 padding: 10px 0;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.1);
                 cursor: pointer;
+
                 .image-container {
                     background-color: rgba(0, 0, 0, 0.05);
                     width: 60px;
                     height: 60px;
                     flex-shrink: 0;
+
                     img {
                         width: 100%;
                         height: 100%;
                     }
                 }
+
                 .prod-details {
                     overflow: hidden;
+
                     .name {
                         text-overflow: ellipsis;
                         white-space: nowrap;
@@ -84,6 +101,7 @@
                         font-weight: 600;
                         display: block;
                     }
+
                     .desc {
                         font-size: 14px;
                         line-height: 1;

@@ -18,7 +18,7 @@ const initialState = {
         },
         addToCartSuccess:(state,action)=>{
             state.isLoading=false
-            let find = state.cartItems.findIndex((item)=>item._id == action.payload._id)
+            let find = state.cartItems.findIndex((item)=>item._id === action.payload._id)
             if(find>=0){
                 state.cartItems[find].quantity += action.payload.quantity
             }else{
@@ -30,9 +30,15 @@ const initialState = {
             state.total = state.cartItems.reduce((sum,el)=>{
                 return sum + (el.price*el.quantity)
             },0)
+            
+        },
+        clearReduxCart:(state,action)=>{
+            state.cartItems = []
+            state.total = 0
+            state.cartQuantity=0
         },
         removeItems:(state,action)=>{
-            state.cartItems = state.cartItems.filter((item)=>item._id != action.payload._id)
+            state.cartItems = state.cartItems.filter((item)=>item._id !== action.payload._id)
             state.cartQuantity = state.cartItems.reduce((sum,el)=>{
                 return sum + el.quantity
             },0)
@@ -42,7 +48,7 @@ const initialState = {
             
         },
         increaseProductQuantity:(state,{payload})=>{
-            const cartItem = state.cartItems.find((item)=>item._id == payload._id)
+            const cartItem = state.cartItems.find((item)=>item._id === payload._id)
             cartItem.quantity += 1
             state.cartQuantity = state.cartItems.reduce((sum,el)=>{
                 return sum + el.quantity
@@ -53,7 +59,7 @@ const initialState = {
             
         },
         decreaseProductQuantity:(state,{payload})=>{
-            const cartItem = state.cartItems.find((item)=>item._id == payload._id)
+            const cartItem = state.cartItems.find((item)=>item._id === payload._id)
             cartItem.quantity -= 1
             state.cartQuantity = state.cartItems.reduce((sum,el)=>{
                 return sum + el.quantity
@@ -67,5 +73,5 @@ const initialState = {
     
   });
 
-  export const {addToCartSuccess,addToCartRequest,removeItems,increaseProductQuantity,decreaseProductQuantity} = cartSlice.actions
+  export const {addToCartSuccess,addToCartRequest,removeItems,increaseProductQuantity,decreaseProductQuantity,clearReduxCart} = cartSlice.actions
   export default cartSlice

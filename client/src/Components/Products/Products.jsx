@@ -9,7 +9,7 @@ const Products = ({productData}) => {
     return (
         <div id="products-container">
             {
-                productData.map((item,index)=>(
+                productData?.map((item,index)=>(
 
                     <Product key={index} item={item} onClick={()=>navigateFn(item)} />
                 ))

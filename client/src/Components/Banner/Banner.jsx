@@ -22,7 +22,7 @@ const Banner = () => {
                     </div>
                 </div>
                 <div  className='banner-img'>
-                    {/* <HeadphoneCanvas /> */}
+                    <HeadphoneCanvas />
                 </div>
             </div>
         </div>

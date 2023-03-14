@@ -1,0 +1,12 @@
+@import "../../css-config/mixins.scss";
+
+
+.homePageLoader{
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+  z-index: 9999;
+}

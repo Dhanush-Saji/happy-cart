@@ -1,9 +1,9 @@
-import React, { Suspense, useRef } from 'react'
+import { Suspense, useRef } from 'react'
 import {Canvas, useFrame} from '@react-three/fiber'
-import {OrbitControls,Preload,Stage,useGLTF} from '@react-three/drei'
+import {OrbitControls,Preload,useGLTF} from '@react-three/drei'
 
 import CanvasLoader from './Loader'
-const Three_screen = () => {
+const ThreeScreen = () => {
     const groupRef = useRef()
     const headphone = useGLTF('./headphoneGLTF_pack/scene.gltf')
     useFrame(() => {
@@ -29,7 +29,7 @@ const HeadphoneCanvas = () =>{
         <Canvas shadows shadowMap={{ type: 'pcfsoft' }} camera={{ position: [0, 0, 50], fov: 25 }}
         gl={{preserveDrawingBuffer:true}}>
             <Suspense fallback={<CanvasLoader />}>
-                <Three_screen />
+                <ThreeScreen />
                 <OrbitControls enableZoom={false} maxPolarAngle={Math.PI/2} minPolarAngle={Math.PI/2} />
             </Suspense>
             <Preload all />

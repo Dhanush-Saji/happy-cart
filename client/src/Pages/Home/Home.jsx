@@ -1,32 +1,41 @@
 import Banner from "../../Components/Banner/Banner";
 import Category from "./Category/Category";
 import "./Home.scss";
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useLayoutEffect } from "react";
-import Products from './../../Components/Products/Products';
-import { useLocation } from 'react-router-dom';
-import { getCategoryItems, getPopularItems, getProducts } from "../../API/APICalls";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import Products from "./../../Components/Products/Products";
+import {
+  getCategoryItems,
+  getPopularItems,
+  getProducts,
+} from "../../API/APICalls";
+import LottieAnimation from "../../Components/LottiesFile/LottieAnimation";
 
 const Home = () => {
-  const dispatch = useDispatch()
-  const categoryData = useSelector((store)=>store.category.categoryItems) || []
-  const productData = useSelector((store)=>store.popularItems.popularItemsArray) || []
-  useEffect(()=>{
-    dispatch(getCategoryItems())
-    dispatch(getPopularItems())
-    dispatch(getProducts())
-  },[])
+  const dispatch = useDispatch();
+  const { categoryItems, isLoading: categoryLoading } =
+    useSelector((store) => store.category) || [];
+  const { popularItemsArray, isLoading: popularLoading } =
+    useSelector((store) => store.popularItems) || [];
+  let check = popularLoading + categoryLoading;
+  useEffect(() => {
+    dispatch(getCategoryItems());
+    dispatch(getPopularItems());
+    dispatch(getProducts());
+  }, []);
   return (
-    <div id='#home'>
+    <div>
       <Banner />
       <div className="main-content">
-        <div className="layout">
-          <Category categoryData={categoryData} />
-          <div className="popular-title">
-                    Popular Products
+        {check ? (
+          <LottieAnimation />
+        ) : (
+          <div className="layout">
+            <Category categoryData={categoryItems} />
+            <div className="popular-title">Popular Products</div>
+            <Products productData={popularItemsArray} />
           </div>
-          <Products productData={productData} />
-        </div>
+        )}
       </div>
     </div>
   );
