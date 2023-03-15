@@ -121,8 +121,8 @@ const Header = () => {
                     </MenuItem>
                   </MenuList>
                 ) : (
-                  <MenuList>
-                    <MenuItem onClick={signinFn}>Sign In</MenuItem>
+                  <MenuList style={{ color: "black", zIndex: "150" }}>
+                    <MenuItem style={{ color: "black", zIndex: "150" }} onClick={signinFn}>Sign In</MenuItem>
                   </MenuList>
                 )}
               </Menu>

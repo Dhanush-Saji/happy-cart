@@ -1,10 +1,11 @@
 @import "../../css-config/mixins.scss";
 .hero-banner {
-    padding: 40px 0 20px 0;
+    padding: 40px 0 50px 0;
     position: relative;
     background-image: linear-gradient(to right, #8e2de2, #4a00e0);
     @include md {
         height: calc(100vh - 80px);
+        padding: 40px 0 20px 0;
     }
     .content {
         height: 100%;
@@ -49,7 +50,7 @@
                 color: white;
                 margin-bottom: 20px;
                 @include md {
-                    font-size: 180px;
+                    font-size: 100px;
                 }
             }
             p {

@@ -51,10 +51,10 @@ export const registerUser = createAsyncThunk('auth/registerUser', async(payload)
                 response,
                 {
                   pending: 'Hm..Let me check',
-                  success: `Hooray! 🎉 `,
+                  success: `You're in! Let's explore 🎉 `,
                   error:{
                     render({data:{response:{data:{error}}}}){
-                        return `Oppss....🤯${error}`
+                        return `Uh-oh,....🤯${error}`
                     }
                   }
                 }
@@ -79,10 +79,10 @@ export const loginUser = createAsyncThunk('auth/loginUser', async(payload) => {
                 response,
                 {
                   pending: 'Hm..Let me check',
-                  success: 'Welcome back! 🎉',
+                  success: 'Good to see you again! 🎉',
                   error:{
                     render({data:{response}}){
-                        return `Oppss....🤯${response.data}`
+                        return `Uh-oh,...🤯${response.data}`
                     }
                   }
                 }

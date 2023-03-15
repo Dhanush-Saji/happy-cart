@@ -18,8 +18,6 @@ const Signup = () => {
   const pathname = location.state?location.state.pathname:null;
     const navigate = useNavigate()
     const dispatch = useDispatch()
-  const [username, setusername] = useState("");
-  const [password, setpassword] = useState("");
   const [avatarImage, setavatarImage] = useState('')
   const onSubmit = (values, actions) => {
     const { email, password,name } = values;
@@ -27,8 +25,6 @@ const Signup = () => {
         email,password,name,avatar:avatarImage,isAdmin:false
     }
     dispatch(registerUser(payload))
-    setusername(email);
-    setpassword(password);
     setTimeout(actions.resetForm, 1000);
     setavatarImage('')
   };
@@ -59,28 +55,20 @@ const Signup = () => {
   });
   const handleFileInputChange = (event) => {
     const file = event.target.files[0];
-    transformFile(file)
-  };
-  const transformFile = (file) =>{
     const reader = new FileReader()
     if(file){
-        reader.readAsDataURL(file)
-        reader.onloadend = () =>{
-            setavatarImage(reader.result)
-        }
-    }else{
-        setavatarImage('')
-    }
+      reader.readAsDataURL(file)
+      reader.onloadend = () =>{
+          setavatarImage(reader.result)
+      }
+  }else{
+      setavatarImage('')
   }
-  const data = useSelector((store)=>store.user.user)
+  };
+  const { user: data } = useSelector((state) => state.user || {});
+
   const triggerFn = () =>{
-    if(pathname){
-
-      navigate(pathname);
-    }else{
-
-      navigate('/');
-    }
+    pathname?navigate(pathname):navigate('/');
 
   }
   useEffect(() => {

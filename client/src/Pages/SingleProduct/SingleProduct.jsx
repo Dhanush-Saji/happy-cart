@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa";
 import RelatedProducts from './RelatedProducts/RelatedProducts';
 import { useLocation, useParams } from 'react-router-dom';
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useState } from "react";
 import LottieAnimation from "../../Components/LottiesFile/LottieAnimation";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "@chakra-ui/react";
@@ -32,14 +32,15 @@ const SingleProduct = () => {
   const { pathname,location } = useLocation();
   const [product, setProduct] = useState(null);
   const {products,isLoading} = useSelector((store)=>store.products) || []
-const addToCartFn = () =>{
-  let dummyProduct = {...product}
-  dummyProduct.quantity = quantity
-  dispacth(addToCartRequest())
-  dispacth(addToCartSuccess(dummyProduct))
-  setquantity(1)
-  toast.success('Hurray....Added to cart!',{toastClassName: 'custom-toast'});
-}
+  const addToCartFn = useCallback(() => {
+    let dummyProduct = {...product}
+    dummyProduct.quantity = quantity
+    dispacth(addToCartRequest())
+    dispacth(addToCartSuccess(dummyProduct))
+    setquantity(1)
+    toast.success('Great pick! Added to your cart');
+  }, [product, quantity, dispacth]);
+  
   useEffect(() => {
     getSingleProductFnApi(id)
       .then(data => {
@@ -63,7 +64,7 @@ const addToCartFn = () =>{
             !product?<LottieAnimation />:(
               <>
               <div className="left">
-            <img src={product?.image.url} alt="product image" />
+            <img src={product?.image?.url} alt="product image" />
           </div>
           <div className="right">
             <span className="name">{product?.title}</span>

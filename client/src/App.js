@@ -13,7 +13,7 @@ function App() {
   const dontShowHeader = location.pathname !== '/not-found';
   const isHomePage = location.pathname === '/'
   const [doIneedToShow, setdoIneedToShow] = useState(true)
-  setTimeout(()=>setdoIneedToShow(false),3000)
+  setTimeout(()=>setdoIneedToShow(false),4000)
   return (
     <>
     {isHomePage&&doIneedToShow&&<HomepageLoader />}

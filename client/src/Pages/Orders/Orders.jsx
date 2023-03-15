@@ -16,14 +16,13 @@ useEffect(()=>{
         dispatch(getUserOrders(userData._id))
     }
 },[])
-console.log(orderItems)
   return (
     <VStack p='3rem 1rem' alignItems={{base:'center',md:'flex-start'}}>
         <Text as='b' fontSize={'3xl'} m='auto' mb='1rem'>My Orders</Text>
         {
             isLoading&&<LottieAnimation />
         }
-        <Grid gridTemplateColumns={{base:'repeat(1,1fr)',md:'repeat(2,1fr)'}} gap='10px'>
+        <Grid gridTemplateColumns={{base:'repeat(1,1fr)',md:'repeat(2,1fr)'}} gap='10px' m='auto' w='100%'>
         {
                     orderItems[0] && orderItems.map((item,id)=>(
                         <VStack bg='rgba(0, 0, 0, 0.05)' p='1rem' borderRadius='15px' gap='1rem' key={id}  justifyContent='space-between'>
@@ -31,7 +30,7 @@ console.log(orderItems)
             <Text fontSize='xs'>Order on: {`${date.getDate()}/${date.toLocaleString('default', { month: 'long' })}/${date.getFullYear()}`}</Text>
             <span className={item.payment_status == 'paid'?'payment-status-paid':''}>{item.payment_status}</span>
             </Flex>
-            <Flex gap='1rem' flexDirection={{base:'column',md:'row'}}>
+            <Flex gap='1rem' flexDirection={{base:'column',md:'row'}} w='100%' justifyContent={'space-between'}>
                 <Flex mt='auto' alignContent={'flex-start'} flexDirection='column'  gap='0.5rem'>
                     {
                         item.products.map((item,id)=>(
@@ -46,7 +45,7 @@ console.log(orderItems)
                     }
                 
                 </Flex>
-                <Flex flexDirection={{base:'row',md:'column'}} gap='0.5rem' justifyContent={'space-between'}>
+                <Flex flexDirection={{base:'row-reverse',md:'column'}} gap='0.5rem' justifyContent={'space-between'}>
             <Button colorScheme='telegram' mt='auto'>Track Order</Button>
             <Button colorScheme='telegram' variant='outline'>View Details</Button>
             </Flex>

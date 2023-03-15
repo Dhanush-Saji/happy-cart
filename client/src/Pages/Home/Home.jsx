@@ -13,10 +13,8 @@ import LottieAnimation from "../../Components/LottiesFile/LottieAnimation";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { categoryItems, isLoading: categoryLoading } =
-    useSelector((store) => store.category) || [];
-  const { popularItemsArray, isLoading: popularLoading } =
-    useSelector((store) => store.popularItems) || [];
+  const { categoryItems, isLoading: categoryLoading } = useSelector(({ category }) => category || {});
+  const { popularItemsArray, isLoading: popularLoading } = useSelector(({ popularItems }) => popularItems || {});
   let check = popularLoading + categoryLoading;
   useEffect(() => {
     dispatch(getCategoryItems());
