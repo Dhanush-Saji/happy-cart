@@ -151,10 +151,9 @@ const Header = () => {
 
       {/* //////////////Search///////////// */}
       <Drawer
-        size={"xs"}
-        style={{ width: "80%" }}
+      size='xs'
         isOpen={isOpenSearch}
-        placement="bottom"
+        placement="left"
         onClose={onCloseSearch}
       >
         <DrawerOverlay />
