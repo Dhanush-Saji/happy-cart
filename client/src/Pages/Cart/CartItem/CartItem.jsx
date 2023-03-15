@@ -1,27 +1,28 @@
 import "./CartItem.scss";
-import prod from "../../../assets/products/headphone-prod-3.webp";
 import { MdOutlineDeleteOutline } from "react-icons/md";
-import { useDispatch, useSelector } from "react-redux";
-import { decreaseProductQuantity, increaseProductQuantity, removeItems } from "../../../Redux/cartSlice";
+import { useDispatch } from "react-redux";
+import {
+  decreaseProductQuantity,
+  increaseProductQuantity,
+  removeItems,
+} from "../../../Redux/cartSlice";
 
-const CartItem = ({item}) => {
-  let dispatch = useDispatch()
-  const qntyChange = (sign) =>{
-    if(sign == '+'){
-      dispatch(increaseProductQuantity(item))
-    }else{
-      if(item.quantity == 1){
-
-        dispatch(removeItems(item))
-      }else{
-
-        dispatch(decreaseProductQuantity(item))
+const CartItem = ({ item }) => {
+  let dispatch = useDispatch();
+  const qntyChange = (sign) => {
+    if (sign == "+") {
+      dispatch(increaseProductQuantity(item));
+    } else {
+      if (item.quantity == 1) {
+        dispatch(removeItems(item));
+      } else {
+        dispatch(decreaseProductQuantity(item));
       }
     }
-  }
-  const deleteItem = () =>{
-    dispatch(removeItems(item))
-  }
+  };
+  const deleteItem = () => {
+    dispatch(removeItems(item));
+  };
   return (
     <div className="cart-products">
       <div className="search-result-item">
@@ -32,9 +33,21 @@ const CartItem = ({item}) => {
           <span className="name">{item.title}</span>
           <MdOutlineDeleteOutline className="close-btn" onClick={deleteItem} />
           <div className="quantity-buttons">
-            <span onClick={()=>{qntyChange('-')}}>-</span>
+            <span
+              onClick={() => {
+                qntyChange("-");
+              }}
+            >
+              -
+            </span>
             <span>{item.quantity}</span>
-            <span onClick={()=>{qntyChange('+')}}>+</span>
+            <span
+              onClick={() => {
+                qntyChange("+");
+              }}
+            >
+              +
+            </span>
           </div>
           <div className="text">
             <span>{item.quantity}</span>

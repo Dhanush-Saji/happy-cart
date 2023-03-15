@@ -1,5 +1,4 @@
 import "./Product.scss";
-import prod from '../../../assets/products/earbuds-prod-1.webp'
 import { useNavigate } from "react-router";
 const Product = ({item}) => {
     const navigate = useNavigate()

@@ -1,0 +1,96 @@
+@import "../../css-config/mixins.scss";
+
+.loginParentDiv {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1000%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(142%2c 80%2c 195%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c534.017C96.897%2c517.295%2c166.363%2c440.712%2c249.997%2c389.002C335.443%2c336.172%2c440.334%2c309.974%2c496.776%2c226.87C557.433%2c137.559%2c581.04%2c25.448%2c569.84%2c-81.931C558.406%2c-191.551%2c507.694%2c-294.113%2c433.897%2c-375.974C360.968%2c-456.872%2c264.854%2c-516.758%2c158.15%2c-538.608C55.975%2c-559.531%2c-51.199%2c-539.709%2c-145.216%2c-494.561C-230.923%2c-453.403%2c-274.62%2c-363.173%2c-343.548%2c-297.686C-421.98%2c-223.169%2c-560.537%2c-189.867%2c-578.253%2c-83.14C-595.9%2c23.173%2c-470.803%2c96.539%2c-425.193%2c194.179C-380.135%2c290.638%2c-395.534%2c419.585%2c-312.369%2c486.055C-228.379%2c553.185%2c-105.955%2c552.303%2c0%2c534.017' fill='%236b359a'%3e%3c/path%3e%3cpath d='M1440 991.024C1518.763 980.8679999999999 1564.591 900.5 1628.732 853.673 1688.16 810.287 1772.297 792.644 1803.1979999999999 725.867 1834.12 659.044 1797.835 582.938 1787.769 509.998 1777.637 436.582 1777.981 362.459 1743.96 296.617 1703.386 218.09199999999998 1659.62 125.697 1575.377 98.94799999999998 1491.08 72.18200000000002 1399.626 118.14600000000002 1323.46 163.10199999999998 1257.933 201.77800000000002 1231.351 278.684 1178.354 333.28200000000004 1120.973 392.397 1022.148 417.43399999999997 999.655 496.688 977.043 576.359 1026.655 657.883 1065.463 731.045 1102.47 800.812 1152.287 861.7080000000001 1217.163 906.741 1283.75 952.961 1359.61 1001.39 1440 991.024' fill='%23af83d5'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1000'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .loginChildDiv {
+        width: 90%;
+        background: rgba(255, 255, 255, 0.26);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(6.9px);
+        -webkit-backdrop-filter: blur(6.9px);
+        border: 1px solid rgba(255, 255, 255, 0.43);
+        @include md{
+            width: 40%;
+        }
+
+        form {
+            display: flex;
+            margin: auto;
+            padding: 1rem;
+            /* width: 100%; */
+            gap: 0.5rem;
+            flex-direction: column;
+
+            .errorEmail {
+                color: rgb(253, 65, 65);
+                margin: 0;
+                font-size: 12px;
+            }
+
+            input {
+                border-radius: 10px;
+                background-color: #ffffff56;
+                padding: 0.5rem 2rem;
+                border: 1px solid #ffffff2f;
+                padding-left: 1.2rem;
+
+                &::placeholder {
+                    color: #00000067;
+                }
+
+                button {
+                    margin-top: 1rem;
+                }
+            }
+
+            .input-error {
+                border: 1px solid rgb(253, 65, 65);
+            }
+
+            .upload-button {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background-color: #6c359a;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                margin: auto;
+                object-fit: contain;
+
+                .avatarImage {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    object-fit: contain;
+                }
+
+                .avatarEditIcon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    bottom: 0;
+                    right: -5px;
+                    color: var(--color-green);
+                    background-color: #ffffffea;
+                    padding: 1px;
+                    border-radius: 50%;
+                    width: 20px;
+                    height: 20px;
+                    font-size: 2px;
+                }
+            }
+        }
+    }
+}

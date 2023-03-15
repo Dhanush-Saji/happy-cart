@@ -1,6 +1,6 @@
 @import "../../css-config/mixins.scss";
 .hero-banner {
-    padding: 40px 0;
+    padding: 40px 0 20px 0;
     position: relative;
     background-image: linear-gradient(to right, #8e2de2, #4a00e0);
     @include md {
@@ -9,12 +9,12 @@
     .content {
         height: 100%;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         align-items: center;
         flex-direction: column-reverse;
-        max-width: calc(100% - 20px);
         margin: 0 auto;
         position: relative;
+        z-index: 0;
         @include lg {
             flex-direction: row;
             max-width: 1200px;
@@ -25,21 +25,15 @@
             justify-content: center;
             position: relative;
             height: 300px;
-            z-index: 9;
-            width: 200px;
+            width: 300px;
             margin-bottom: 20px;
             @include md {
                 height: calc(100vh + 10px);
                 width: 570px;
-                // margin-right: 60px;
-                margin-top: 0px;
-                margin-bottom: 0px;
             }
             @include lg {
                 width: 700px;
             margin-top: 50px;
-                margin-right: 0;
-                margin-top: 0;
             }
         }
         .text-content {
@@ -48,16 +42,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            @include lg {
-                position: absolute;
-                left: 50px;
-                top: 50%;
-                transform: translateY(-50%);
-                left: 0;
-            }
-            // @include xxl {
-            //     left: 0;
-            // }
             h1 {
                 font-size: 80px;
                 font-weight: 700;

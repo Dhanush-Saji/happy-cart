@@ -3,6 +3,7 @@
 .footer {
     width: 100%;
     padding: 0px 20px;
+
     .footer-content {
         padding: 50px 20px;
         max-width: 1200px;
@@ -10,29 +11,37 @@
         display: flex;
         flex-flow: wrap;
         gap: 20px;
+
         @include md {
             justify-content: space-between;
             padding: 50px 0;
         }
+
         .col {
             max-width: 300px;
+
             &:nth-child(3) {
                 width: 150px;
+
                 @include md {
                     width: auto;
                 }
             }
+
             .title {
                 margin-bottom: 20px;
                 font-size: 20px;
             }
+
             .text {
                 color: rgba(0, 0, 0, 0.5);
                 font-size: 14px;
             }
+
             .c-item {
                 display: flex;
                 margin-bottom: 10px;
+
                 svg {
                     flex-shrink: 0;
                     font-size: 14px;
@@ -41,6 +50,7 @@
                     color: rgba(0, 0, 0, 0.5);
                 }
             }
+
             span {
                 &.text {
                     display: block;
@@ -50,8 +60,10 @@
             }
         }
     }
+
     .bottom-bar {
         border-top: 1px solid rgba(0, 0, 0, 0.1);
+
         .bottom-bar-content {
             padding: 20px;
             display: flex;
@@ -59,6 +71,7 @@
             flex-direction: column;
             text-align: center;
             gap: 10px;
+
             @include md {
                 padding: 0;
                 height: 60px;
@@ -68,6 +81,7 @@
                 justify-content: space-between;
                 text-align: left;
             }
+
             .text {
                 font-size: 12px;
                 color: rgba(0, 0, 0, 0.5);

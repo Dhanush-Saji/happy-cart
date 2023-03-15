@@ -7,27 +7,27 @@ import {
   FaPinterest,
   FaCartPlus,
 } from "react-icons/fa";
-import prod from "../../assets/products/watch-prod-1.webp";
 import RelatedProducts from './RelatedProducts/RelatedProducts';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { useEffect, useLayoutEffect, useState } from "react";
 import LottieAnimation from "../../Components/LottiesFile/LottieAnimation";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "@chakra-ui/react";
 import { getSingleProductFnApi } from "../../API/APICalls";
 import { addToCartRequest, addToCartSuccess } from "../../Redux/cartSlice";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 const SingleProduct = () => {
   const dispacth = useDispatch()
   const [quantity, setquantity] = useState(1)
   const handleQuantity = (sign) =>{
-    if(sign == '-'){
+    if(sign === '-'){
       setquantity((prev)=>prev-1)
     }else{
       setquantity((prev)=>prev+1)
 
     }
   }
-  const navigate = useNavigate();
   const {id} = useParams()
   const { pathname,location } = useLocation();
   const [product, setProduct] = useState(null);
@@ -38,6 +38,7 @@ const addToCartFn = () =>{
   dispacth(addToCartRequest())
   dispacth(addToCartSuccess(dummyProduct))
   setquantity(1)
+  toast.success('Hurray....Added to cart!',{toastClassName: 'custom-toast'});
 }
   useEffect(() => {
     getSingleProductFnApi(id)
@@ -105,6 +106,17 @@ const addToCartFn = () =>{
         }
        
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={1500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable={false}
+        pauseOnHover={false}
+      />
     </div>
   );
 };

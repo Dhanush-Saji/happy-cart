@@ -1,14 +1,11 @@
-import React from 'react'
-import Lottie from "lottie-react";
-import loader from '../../assets/loader.json'
-import { Flex } from '@chakra-ui/react';
+import LottieBundler from '../LottieBundler/LottieBundler';
 
 const LottieAnimation = () => {
+  const configStyle ={}
   return (
-    <Flex>
-    <Lottie animationData={loader} loop={true} />
-    <Lottie animationData={loader} loop={true} />
-    </Flex>
+    <div style={{display:'flex'}}>
+      <LottieBundler configStyle={configStyle} purpose={'loading'} />
+    </div>
   )
 }
 

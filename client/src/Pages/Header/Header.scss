@@ -1,68 +1,96 @@
 @import "../../css-config/mixins.scss";
 
-.main-header{
+.main-header {
     width: 100%;
     padding: 0 20px;
     background-color: #212121;
     color: white;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     z-index: 99;
-    @include md{
+
+    @include md {
         padding: 0 40px;
     }
-    .header-content{
+
+    .header-content {
         display: flex;
         justify-content: space-between;
         align-items: center;
         height: 50px;
         max-width: 1200px;
         margin: 0 auto;
-        @include md{
+
+        @include md {
             height: 80px;
         }
-        .left{
+
+        .left {
             list-style-type: none;
             display: none;
             gap: 25px;
-            @include md{
+
+            @include md {
                 display: flex;
             }
-            li{
+
+            li {
                 font-size: 14px;
                 font-weight: 600;
                 text-transform: uppercase;
                 cursor: pointer;
             }
         }
-        .center{
+
+        .center {
             font-size: 22px;
             cursor: pointer;
             font-weight: 700;
-            @include md{
+
+            @include md {
                 font-size: 34px;
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
             }
         }
-        .right{
+
+        .right {
             display: flex;
             align-items: center;
             gap: 20px;
-            @include md{
+
+            @include md {
                 gap: 25px;
             }
-            svg{
+
+            .menuList {
+                color: #212121c5;
+            }
+
+            .user-icon {
+                background-color: white;
+                color: #212121;
+                width: 30px;
+                height: 30px;
+                padding: 5px;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+
+            svg {
                 font-size: 20px;
                 cursor: pointer;
-                @include md{
+
+                @include md {
                     font-size: 25px;
                 }
             }
-            .cart-icon{
+
+            .cart-icon {
                 position: relative;
                 cursor: pointer;
-                span{
+
+                span {
                     min-width: 20px;
                     text-align: center;
                     background-color: #8e2de2;
@@ -77,14 +105,21 @@
             }
         }
     }
-    &.sticky-header{
+
+    &.sticky-header {
         position: sticky;
         top: 0;
         transform: translateY(-80px);
         animation: stickyHeader 0.3s ease forwards;
     }
 }
-@keyframes stickyHeader{
-    0%{transform: translateY(-80px);}
-    100%{transform: translateY(0);}
+
+@keyframes stickyHeader {
+    0% {
+        transform: translateY(-80px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
