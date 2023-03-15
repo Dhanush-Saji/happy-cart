@@ -151,7 +151,7 @@ const Header = () => {
 
       {/* //////////////Search///////////// */}
       <Drawer
-      size='xs'
+      size={{base:'lg'}}
         isOpen={isOpenSearch}
         placement="left"
         onClose={onCloseSearch}
