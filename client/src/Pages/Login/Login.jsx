@@ -13,8 +13,6 @@ const Login = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const pathname = location.state ? location.state.pathname : null;
-  const [username, setusername] = useState("");
-  const [password, setpassword] = useState("");
   const onSubmit = (values, actions) => {
     const { email, password } = values;
     let payload = {
@@ -22,8 +20,6 @@ const Login = () => {
       password,
     };
     dispatch(loginUser(payload));
-    setusername(email);
-    setpassword(password);
     setTimeout(actions.resetForm, 1000);
   };
   const loginSchema = yup.object().shape({
@@ -40,7 +36,8 @@ const Login = () => {
     validationSchema: loginSchema,
     onSubmit,
   });
-  const userData = useSelector((store) => store.user.user);
+  const { user: userData } = useSelector((state) => state.user || {});
+
   const triggerFn = () => {
     if (pathname) {
       navigate(pathname);

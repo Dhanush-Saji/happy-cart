@@ -25,7 +25,7 @@ import { BiFilterAlt } from "react-icons/bi";
 const Category = () => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
-  const { products, isLoading } = useSelector((store) => store.products);
+  const { products, isLoading } = useSelector(({products}) => products || {});
   const [searchParams, setSearchParams] = useSearchParams();
   const initialCategory = searchParams.getAll("category");
   const initialPrice = searchParams.getAll("price");

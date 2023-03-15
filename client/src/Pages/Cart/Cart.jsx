@@ -1,5 +1,6 @@
 import "./Cart.scss";
 import { BsCartX } from "react-icons/bs";
+import { FiArrowRight } from "react-icons/fi";
 import CartItem from "./CartItem/CartItem";
 import {
   AlertDialog,
@@ -72,13 +73,12 @@ const Cart = ({ handleCloseCart }) => {
             <span className="text">Subtotal:</span>
             <span className="text total">₹{total}</span>
           </div>
-          <Tooltip
-            w="80%"
+          <Tooltip maxW="250px"
             isDisabled={userData ? false : true}
             hasArrow
             arrowSize={15}
             placement="top"
-            label={`This is a test account. In order to complete the payment, enter the card number '4242 4242 4242 4242'.`}
+            label={`Enter the card number '4242 4242 4242 4242' at the time of payment.`}
             bg="gray.300"
             color="black"
           >
@@ -108,15 +108,14 @@ const Cart = ({ handleCloseCart }) => {
             </AlertDialogHeader>
 
             <AlertDialogBody>
-              Please enter the card number '4242 4242 4242 4242' instead of your
-              card details. Understood?
+            Please enter the 'magic' card number '4242 4242 4242 4242' at the time of payment instead of your actual card details.
             </AlertDialogBody>
 
             <AlertDialogFooter>
               <Button ref={cancelRef} onClick={onCloseCheckout}>
                 Cancel
               </Button>
-              <Button colorScheme="green" onClick={checkoutFn} ml={3}>
+              <Button colorScheme="green" onClick={checkoutFn} ml={3} rightIcon={<FiArrowRight />}>
                 I'm born ready!
               </Button>
             </AlertDialogFooter>
