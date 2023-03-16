@@ -37,7 +37,7 @@
 
 <h3 align="center"><a href="https://happycart-official.netlify.app/"><strong>Want to see live preview »</strong></a></h3>
 
-<h3 align="center"><a href="https://drive.google.com/file/d/14aycmdguORB_THHcGTkikQDUJ2r45pHq/view?usp=share_link"><strong>Demo Video »</strong></a></h3>
+<h3 align="center"><a href="https://www.linkedin.com/feed/update/urn:li:activity:7042094659233341440/"><strong>Demo Video »</strong></a></h3>
 
 
 <br />
